@@ -2,13 +2,22 @@
 <resources>
 
     <string name="app_name">Ads</string>
+
     <string name="title_section_bottom_admob">Bottom (adMob)</string>
     <string name="title_section_top_custom">Top (custom)</string>
     <string name="title_section_list_admob">List (adMob)</string>
     <string name="title_section_inline_startad">Inline (startAd.mobi)</string>
     <string name="title_section_interstitial_admob">Interstitial (adMob)</string>
+
+    <string name="description_section_1">Position: bottom. Type: AdMob. Size: smart</string>
+    <string name="description_section_2">Position: top. Type: custom</string>
+    <string name="description_section_3">Position: list. Type: AdMob, Step: 15</string>
+    <string name="description_section_4">Position: inline. Type: startad.mob</string>
+    <string name="description_section_5">Position: interstitial. Type: AdMob</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
 

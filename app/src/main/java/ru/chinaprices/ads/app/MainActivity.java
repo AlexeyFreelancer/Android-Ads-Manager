@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -14,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -127,9 +127,9 @@ public class MainActivity extends ActionBarActivity
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             String sectionNumber = Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER));
 
-            // TODO add description
-//            TextView textView = (TextView) rootView.findViewById(R.id.section_description);
-//            textView.setText(sectionNumber);
+            TextView textView = (TextView) rootView.findViewById(R.id.section_description);
+            textView.setText(getString(getResources().getIdentifier(
+                    "description_section_" + sectionNumber, "string", R.class.getPackage().getName())));
 
             ListView listview = (ListView) rootView.findViewById(R.id.list_view);
 
