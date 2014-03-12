@@ -4,7 +4,8 @@ Android Ads Manager
 Управление рекламой в вашем android приложении.
 
 Демо версия: https://play.google.com/store/apps/details?id=ru.chinaprices.ads.app
-Используется в проекте Цены в Китае: https://play.google.com/store/apps/details?id=ru.chinaprices.ads.app
+
+Используется в проекте "Цены в Китае": https://play.google.com/store/apps/details?id=ru.chinaprices
 
 Вы можете менять позиции отображения рекламы и ее тип.
 
