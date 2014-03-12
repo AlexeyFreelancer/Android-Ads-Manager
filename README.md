@@ -22,4 +22,9 @@ Android Ads Manager
 Так как приходится постоянно экспериментировать, добавлена возможость хранить настройки на стороне сервера. Это очень удобно, можно поменять позицию/тип рекламы не заставляя пользователей обновлять приложение.
 
 <img src="http://chinaprices.ru/images/adsmanager/1.png" width="300px" />
-![](http://chinaprices.ru/images/adsmanager/2.png =250x)
+<img src="http://chinaprices.ru/images/adsmanager/2.png" width="300px" />
+<img src="http://chinaprices.ru/images/adsmanager/3.png" width="300px" />
+<img src="http://chinaprices.ru/images/adsmanager/4.png" width="300px" />
+<img src="http://chinaprices.ru/images/adsmanager/5.png" width="300px" />
+<img src="http://chinaprices.ru/images/adsmanager/6.png" width="300px" />
+
