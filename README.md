@@ -7,14 +7,6 @@ Android Ads Manager
 
 Используется в проекте [Цены в Китае](https://play.google.com/store/apps/details?id=ru.chinaprices)
 
-<img src="http://chinaprices.ru/images/adsmanager/1.png" style="width: 300px;"/>
-<img src="http://chinaprices.ru/images/adsmanager/2.png" style="width: 300px;"/>
-<img src="http://chinaprices.ru/images/adsmanager/3.png" style="width: 300px;"/>
-<img src="http://chinaprices.ru/images/adsmanager/4.png" style="width: 300px;"/>
-<img src="http://chinaprices.ru/images/adsmanager/5.png" style="width: 300px;"/>
-<img src="http://chinaprices.ru/images/adsmanager/6.png" style="width: 300px;"/>
-
-
 Доступны следующие позиции:
 - Снизу
 - Сверху
@@ -28,3 +20,6 @@ Android Ads Manager
 - Свой (в виде html)
 
 Так как приходится постоянно экспериментировать, добавлена возможость хранить настройки на стороне сервера. Это очень удобно, можно поменять позицию/тип рекламы не заставляя пользователей обновлять приложение.
+
+<img src="http://chinaprices.ru/images/adsmanager/1.png" width="300px" />
+![](http://chinaprices.ru/images/adsmanager/2.png =250x)
