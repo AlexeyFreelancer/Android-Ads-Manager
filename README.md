@@ -19,6 +19,8 @@ Android Ads Manager
 - StartAd.mobi
 - Свой (в виде html)
 
+Min sdk version - 8 (android 2.2)
+
 Так как приходится постоянно экспериментировать, добавлена возможость хранить настройки на стороне сервера. Это очень удобно, можно поменять позицию/тип рекламы не заставляя пользователей обновлять приложение.
 
 # Примеры использования
@@ -71,4 +73,33 @@ Android Ads Manager
     AdMobInterstitialAd ad = new AdMobInterstitialAd(activity, admobId);
     ad.show();
 
+## Настройки на стороне сервера
+    new AdsLoadTask(getActivity(), sectionNumber, adapter, "android").execute();
+
+ - http://chinaprices.ru/api/test_ads_settings.php?apikey=testads&section=1
+ - http://chinaprices.ru/api/test_ads_settings.php?apikey=testads&section=2
+ - http://chinaprices.ru/api/test_ads_settings.php?apikey=testads&section=3
+ - http://chinaprices.ru/api/test_ads_settings.php?apikey=testads&section=4
+ - http://chinaprices.ru/api/test_ads_settings.php?apikey=testads&section=5
+ - http://chinaprices.ru/api/test_ads_settings.php?apikey=testads&section=6
+
+
 <img src="http://chinaprices.ru/images/adsmanager/6.png" width="300px" />
+
+# Подключение к проекту
+На текущий момент это не библиотека, а обычное приложение. Если Вы хотите использовать это в своем приложении нужно сделать следующее:
+ - перенести библиотеки из папки libs (на текущий момент там только одна - StartADLib-1.0.1.jar)
+ - обновитьзависимости в build.gradle
+
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile files('libs/StartADLib-1.0.1.jar')
+    compile 'com.google.code.gson:gson:2.2.4@jar'
+
+ - изменить AndroidManifest.xml
+
+    <meta-data android:name="email" android:value="you@email" />
+    <meta-data android:name="trackingId" android:value="yourid" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
+
