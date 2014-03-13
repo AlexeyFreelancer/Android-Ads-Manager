@@ -89,12 +89,14 @@ Min sdk version - 8 (android 2.2)
 На текущий момент это не библиотека, а обычное приложение. Чтобы использовать в своем приложении нужно сделать следующее:
  - перенести библиотеки из папки libs
  - обновить зависимости в build.gradle
+
     ```gradle
     compile 'com.google.android.gms:play-services:4.0.30'
     compile files('libs/StartADLib-1.0.1.jar')
     compile 'com.google.code.gson:gson:2.2.4@jar'
     ```
  - изменить AndroidManifest.xml
+
     ```xml
     <meta-data android:name="email" android:value="you@email" />
     <meta-data android:name="trackingId" android:value="yourid" />
