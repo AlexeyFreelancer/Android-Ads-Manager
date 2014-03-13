@@ -88,19 +88,23 @@ Min sdk version - 8 (android 2.2)
 # Подключение к проекту
 На текущий момент это не библиотека, а обычное приложение. Если Вы хотите использовать это в своем приложении нужно сделать следующее:
  - перенести библиотеки из папки libs
+
  На текущий момент там только одна - StartADLib-1.0.1.jar
 
+
  - обновить зависимости в build.gradle
-```gradle
-compile 'com.google.android.gms:play-services:4.0.30'
-compile files('libs/StartADLib-1.0.1.jar')
-compile 'com.google.code.gson:gson:2.2.4@jar'
+
+    ```gradle
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile files('libs/StartADLib-1.0.1.jar')
+    compile 'com.google.code.gson:gson:2.2.4@jar'
+
 
  - изменить AndroidManifest.xml
-```xml
-<meta-data android:name="email" android:value="you@email" />
-<meta-data android:name="trackingId" android:value="yourid" />
-<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+    ```xml
+    <meta-data android:name="email" android:value="you@email" />
+    <meta-data android:name="trackingId" android:value="yourid" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
 
