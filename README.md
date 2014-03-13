@@ -91,10 +91,10 @@ Min sdk version - 8 (android 2.2)
  На текущий момент там только одна - StartADLib-1.0.1.jar
 
  - обновить зависимости в build.gradle
-    ```gradle
-    compile 'com.google.android.gms:play-services:4.0.30'
-    compile files('libs/StartADLib-1.0.1.jar')
-    compile 'com.google.code.gson:gson:2.2.4@jar'
+```gradle
+compile 'com.google.android.gms:play-services:4.0.30'
+compile files('libs/StartADLib-1.0.1.jar')
+compile 'com.google.code.gson:gson:2.2.4@jar'
 
  - изменить AndroidManifest.xml
 ```xml
