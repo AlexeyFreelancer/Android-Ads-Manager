@@ -39,7 +39,9 @@ public class AdStartAd extends Ad {
             sadView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    adListener.onClick(ad);
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        adListener.onClick(ad);
+                    }
                     return false;
                 }
             });

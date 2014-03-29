@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 public class AdManager {
+    public static final int AD_VIEW_ID = 237843;
     private AdInterface ad;
     private Activity activity;
     private FrameLayout adLayout;
@@ -33,9 +34,7 @@ public class AdManager {
 
         params.gravity = gravity;
 
-        int adViewId = 237843;
-
-        View adView = activity.getWindow().findViewById(adViewId);
+        View adView = activity.getWindow().findViewById(AD_VIEW_ID);
 
         if (adView != null) {
             ((FrameLayout) adView.getParent()).removeView(adView);
@@ -43,13 +42,17 @@ public class AdManager {
 
         adView = ad.getView();
 
-        adView.setId(adViewId);
+        adView.setId(AD_VIEW_ID);
         activity.addContentView(adLayout, params);
         adLayout.addView(adView);
     }
 
     public void hide() {
-        adLayout.setVisibility(View.GONE);
+        View adView = activity.getWindow().findViewById(AD_VIEW_ID);
+
+        if (adView != null) {
+            ((FrameLayout) adView.getParent()).removeView(adView);
+        }
     }
 
     public void showInView(final String viewId) throws NullPointerException {
