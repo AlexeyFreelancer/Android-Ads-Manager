@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.Gravity;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.common.ConnectionResult;
@@ -27,6 +28,7 @@ import java.util.List;
 
 import ru.chinaprices.lib.ads.Ad;
 import ru.chinaprices.lib.ads.AdCustom;
+import ru.chinaprices.lib.ads.AdInterface;
 import ru.chinaprices.lib.ads.AdManager;
 import ru.chinaprices.lib.ads.AdMob;
 import ru.chinaprices.lib.ads.AdMobInterstitialAd;
@@ -34,6 +36,7 @@ import ru.chinaprices.lib.ads.AdPosition;
 import ru.chinaprices.lib.ads.AdStartAd;
 import ru.chinaprices.lib.ads.InterstitialAd;
 import ru.chinaprices.lib.ads.adapter.AdListAdapter;
+import ru.chinaprices.lib.ads.adapter.AdListener;
 
 public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
 
@@ -91,7 +94,6 @@ public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
             return;
         }
 
-
         activity.runOnUiThread(new Runnable() {
 
             @Override
@@ -118,6 +120,15 @@ public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
                 }
 
                 AdManager adManager = new AdManager(ad);
+
+                adManager.setAdListener(new AdListener() {
+                    @Override
+                    public void onClick(AdInterface ad) {
+                        Log.v(LOG_TAG, "Click on ad: " + ad.getClass().getSimpleName());
+                        Toast.makeText(activity, "Click on ad:" + ad.getClass().getSimpleName(),
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
 
                 switch (adPosition) {
                     case LIST:
