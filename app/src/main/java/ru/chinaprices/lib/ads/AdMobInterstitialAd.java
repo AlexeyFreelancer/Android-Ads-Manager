@@ -27,6 +27,7 @@ public class AdMobInterstitialAd extends InterstitialAd {
     @Override
     public void show() {
         final com.google.android.gms.ads.InterstitialAd interstitial = new com.google.android.gms.ads.InterstitialAd(activity);
+        final AdMobInterstitialAd ad = this;
 
         interstitial.setAdUnitId(id);
 
@@ -36,6 +37,13 @@ public class AdMobInterstitialAd extends InterstitialAd {
         interstitial.setAdListener(new AdListener() {
             public void onAdLoaded() {
                 interstitial.show();
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                if (adListener != null) {
+                    adListener.onClick(ad);
+                }
             }
         });
     }

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 abstract public class InterstitialAd implements InterstitialAdInterface {
     protected Activity activity;
+    protected InterstitialAdListener adListener;
 
     public InterstitialAd(Activity activity) {
         this.activity = activity;
@@ -11,5 +12,9 @@ abstract public class InterstitialAd implements InterstitialAdInterface {
 
     public Activity getActivity() {
         return activity;
+    }
+
+    public void setAdListener(InterstitialAdListener adListener) {
+        this.adListener = adListener;
     }
 }

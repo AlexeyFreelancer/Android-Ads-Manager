@@ -1,4 +1,4 @@
-package ru.chinaprices.lib.ads.adapter;
+package ru.chinaprices.lib.ads;
 
 import ru.chinaprices.lib.ads.AdInterface;
 

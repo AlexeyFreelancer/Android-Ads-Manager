@@ -35,8 +35,10 @@ import ru.chinaprices.lib.ads.AdMobInterstitialAd;
 import ru.chinaprices.lib.ads.AdPosition;
 import ru.chinaprices.lib.ads.AdStartAd;
 import ru.chinaprices.lib.ads.InterstitialAd;
+import ru.chinaprices.lib.ads.InterstitialAdInterface;
+import ru.chinaprices.lib.ads.InterstitialAdListener;
 import ru.chinaprices.lib.ads.adapter.AdListAdapter;
-import ru.chinaprices.lib.ads.adapter.AdListener;
+import ru.chinaprices.lib.ads.AdListener;
 
 public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
 
@@ -107,6 +109,15 @@ public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
                         Log.e(LOG_TAG, "getInterstitialAd(): " + e.getMessage());
                         return;
                     }
+
+                    interstitialAd.setAdListener(new InterstitialAdListener() {
+                        @Override
+                        public void onClick(InterstitialAdInterface ad) {
+                            Log.v(LOG_TAG, "Click on ad: " + ad.getClass().getSimpleName());
+                            Toast.makeText(activity, "Click on ad:" + ad.getClass().getSimpleName(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
 
                     interstitialAd.show();
                 }

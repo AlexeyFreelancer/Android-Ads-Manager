@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import ru.chinaprices.lib.ads.adapter.AdListener;
-
 public class AdManager {
     private AdInterface ad;
     private Activity activity;
