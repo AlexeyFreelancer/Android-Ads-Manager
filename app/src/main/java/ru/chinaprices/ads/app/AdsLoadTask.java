@@ -130,9 +130,7 @@ public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
                     return;
                 }
 
-                AdManager adManager = new AdManager(ad);
-
-                adManager.setAdListener(new AdListener() {
+                ad.setAdListener(new AdListener() {
                     @Override
                     public void onClick(AdInterface ad) {
                         Log.v(LOG_TAG, "Click on ad: " + ad.getClass().getSimpleName());
@@ -140,6 +138,10 @@ public class AdsLoadTask extends AsyncTask<String, Integer, AdsSettings> {
                                 Toast.LENGTH_LONG).show();
                     }
                 });
+
+                AdManager adManager = new AdManager(ad);
+
+
 
                 switch (adPosition) {
                     case LIST:

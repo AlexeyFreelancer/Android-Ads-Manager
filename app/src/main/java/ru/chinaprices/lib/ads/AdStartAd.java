@@ -1,6 +1,7 @@
 package ru.chinaprices.lib.ads;
 
 import android.app.Activity;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.startad.lib.SADView;
@@ -22,6 +23,7 @@ public class AdStartAd extends Ad {
     @Override
     public View getView() {
         SADView sadView = new SADView(activity, id);
+        final AdStartAd ad = this;
 
         Locale locale = activity.getResources().getConfiguration().locale;
         if (locale.getLanguage().equals("ru")
@@ -31,6 +33,16 @@ public class AdStartAd extends Ad {
             sadView.loadAd(SADView.LANGUAGE_RU);
         } else {
             sadView.loadAd(SADView.LANGUAGE_EN);
+        }
+
+        if (adListener != null) {
+            sadView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    adListener.onClick(ad);
+                    return false;
+                }
+            });
         }
 
         return sadView;

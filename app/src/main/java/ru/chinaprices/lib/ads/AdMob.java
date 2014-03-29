@@ -3,6 +3,7 @@ package ru.chinaprices.lib.ads;
 import android.app.Activity;
 import android.view.View;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
@@ -38,6 +39,7 @@ public class AdMob extends Ad {
     public View getView() {
         final AdView mAdView = new AdView(activity);
         final AdRequest.Builder adRequestBuilder = new AdRequest.Builder();
+        final AdMob ad = this;
 
         mAdView.setAdUnitId(id);
         mAdView.setAdSize(adSize);
@@ -52,6 +54,14 @@ public class AdMob extends Ad {
         // TODO add more
         adRequestBuilder.addTestDevice(AdRequest.DEVICE_ID_EMULATOR);
 
+        if (adListener != null) {
+            mAdView.setAdListener(new AdListener() {
+                @Override
+                public void onAdLeftApplication() {
+                    adListener.onClick(ad);
+                }
+            });
+        }
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
