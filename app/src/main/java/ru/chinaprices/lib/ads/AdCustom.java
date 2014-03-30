@@ -1,10 +1,12 @@
 package ru.chinaprices.lib.ads;
 
 import android.app.Activity;
-import android.view.MotionEvent;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class AdCustom extends Ad {
 
@@ -21,23 +23,28 @@ public class AdCustom extends Ad {
         final AdCustom ad = this;
 
         adView.setBackgroundColor(activity.getResources().getColor(android.R.color.transparent));
+        adView.setHorizontalScrollBarEnabled(false);
+        adView.setVerticalScrollBarEnabled(false);
+        adView.setFocusable(false);
+        adView.setFocusableInTouchMode(false);
 
         final WebSettings webSettings = adView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         adView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
 
-        if (adListener != null) {
-            adView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        adListener.onClick(ad);
-                    }
-                    return false;
+        adView.setWebViewClient(new WebViewClient() {
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(url));
+                activity.startActivity(intent);
+
+                if (adListener != null) {
+                    adListener.onClick(ad);
                 }
-            });
-        }
+                return true;
+            }
+        });
+
 
         return adView;
     }

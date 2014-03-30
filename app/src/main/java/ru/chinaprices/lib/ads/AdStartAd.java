@@ -1,7 +1,6 @@
 package ru.chinaprices.lib.ads;
 
 import android.app.Activity;
-import android.view.MotionEvent;
 import android.view.View;
 
 import com.startad.lib.SADView;
@@ -35,17 +34,30 @@ public class AdStartAd extends Ad {
             sadView.loadAd(SADView.LANGUAGE_EN);
         }
 
-        if (adListener != null) {
-            sadView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        adListener.onClick(ad);
-                    }
-                    return false;
+        sadView.setAdListener(new SADView.SADListener() {
+            @Override
+            public void onReceiveAd() {
+            }
+
+            @Override
+            public void onShowedAd() {
+            }
+
+            @Override
+            public void onError(SADView.ErrorCode errorCode) {
+            }
+
+            @Override
+            public void onAdClicked() {
+                if (adListener != null) {
+                    adListener.onClick(ad);
                 }
-            });
-        }
+            }
+
+            @Override
+            public void noAdFound() {
+            }
+        });
 
         return sadView;
     }

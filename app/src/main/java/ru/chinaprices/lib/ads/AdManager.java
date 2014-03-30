@@ -27,6 +27,7 @@ public class AdManager {
         }
 
         adLayout = new FrameLayout(activity);
+        adLayout.setVisibility(View.VISIBLE);
 
         final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 FrameLayout.LayoutParams.WRAP_CONTENT,
@@ -49,7 +50,6 @@ public class AdManager {
 
     public void hide() {
         View adView = activity.getWindow().findViewById(AD_VIEW_ID);
-
         if (adView != null) {
             ((FrameLayout) adView.getParent()).removeView(adView);
         }
@@ -61,6 +61,7 @@ public class AdManager {
         LinearLayout layout = ((LinearLayout) activity.findViewById(
                 activity.getResources().getIdentifier(viewId, "id", activity.getPackageName())));
 
+        layout.setVisibility(View.VISIBLE);
         layout.addView(adView);
     }
 }
